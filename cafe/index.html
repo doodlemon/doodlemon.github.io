@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sucrée — Sweets & Patisserie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="cursor"></div>
+
+  <!-- Floating background blobs -->
+  <div class="floaty-bg" aria-hidden="true">
+    <span style="width:320px;height:320px;top:-80px;left:-100px;background:var(--pink-2);animation-duration:14s;"></span>
+    <span style="width:200px;height:200px;top:30%;right:-60px;background:var(--pink-3);animation-duration:10s;animation-delay:-4s;"></span>
+    <span style="width:260px;height:260px;bottom:10%;left:10%;background:var(--blush);animation-duration:17s;animation-delay:-8s;"></span>
+    <span style="width:140px;height:140px;top:60%;right:20%;background:var(--pink-2);animation-duration:12s;animation-delay:-2s;"></span>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Sucrée</a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#menu" class="nav-pill">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-sprinkles" aria-hidden="true" id="sprinkles"></div>
+
+    <p class="hero-eyebrow">Handcrafted with love</p>
+    <h1 class="hero-title">Life is sweet<br><em>indulge a little</em></h1>
+    <p class="hero-sub">Patisserie & sweets made fresh every morning,<br>because you deserve something beautiful today.</p>
+
+    <div class="hero-cta">
+      <a href="#menu" class="btn-pink">Explore the Menu</a>
+      <a href="#about" class="btn-outline">Our Story</a>
+    </div>
+
+    <div class="hero-treats" aria-hidden="true">
+      <div class="treat treat-1">🍰</div>
+      <div class="treat treat-2">🧁</div>
+      <div class="treat treat-3">🍓</div>
+      <div class="treat treat-4">🌸</div>
+      <div class="treat treat-5">🍩</div>
+    </div>
+
+    <div class="hero-arch"></div>
+  </section>
+
+  <!-- MARQUEE STRIP -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Handmade Daily</span><span class="dot">✦</span>
+      <span>Fresh Ingredients</span><span class="dot">✦</span>
+      <span>Made with Love</span><span class="dot">✦</span>
+      <span>No Preservatives</span><span class="dot">✦</span>
+      <span>Seasonal Specials</span><span class="dot">✦</span>
+      <span>Handmade Daily</span><span class="dot">✦</span>
+      <span>Fresh Ingredients</span><span class="dot">✦</span>
+      <span>Made with Love</span><span class="dot">✦</span>
+      <span>No Preservatives</span><span class="dot">✦</span>
+      <span>Seasonal Specials</span><span class="dot">✦</span>
+      <span>Handmade Daily</span><span class="dot">✦</span>
+      <span>Fresh Ingredients</span><span class="dot">✦</span>
+      <span>Made with Love</span><span class="dot">✦</span>
+      <span>No Preservatives</span><span class="dot">✦</span>
+      <span>Seasonal Specials</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="about-blob"></div>
+        <div class="about-card about-card-1">
+          <div class="about-card-emoji">🍰</div>
+          <div class="about-card-text">
+            <strong>12+</strong>
+            <span>Daily flavors</span>
+          </div>
+        </div>
+        <div class="about-card about-card-2">
+          <div class="about-card-emoji">🧁</div>
+          <div class="about-card-text">
+            <strong>100%</strong>
+            <span>Natural colors</span>
+          </div>
+        </div>
+        <div class="about-card about-card-3">
+          <div class="about-card-emoji">🌸</div>
+          <div class="about-card-text">
+            <strong>Since '18</strong>
+            <span>Baking with heart</span>
+          </div>
+        </div>
+        <div class="about-img-placeholder">
+          <img
+            src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80"
+            alt="Beautifully arranged pastries on a marble counter"
+          />
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <p class="section-tag">Our Story</p>
+        <h2 class="section-title">Born from a tiny kitchen,<br>a <em>whole lot of butter</em></h2>
+        <p class="about-body">
+          Sucrée started as Sunday afternoon baking sessions that got completely out of hand. What began as a hobby turned into something we couldn't stop sharing — so we stopped trying to.
+        </p>
+        <p class="about-body">
+          Every macaron, tart, and cake is made by hand each morning. We use real butter, seasonal fruit, and zero shortcuts. Come in for a slice. Stay for the whole thing.
+        </p>
+        <div class="about-pills">
+          <span class="pill">🧈 Real butter only</span>
+          <span class="pill">🍓 Seasonal fruit</span>
+          <span class="pill">🚫 No preservatives</span>
+          <span class="pill">🌸 Edible florals</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="menu-inner">
+      <div class="menu-header reveal">
+        <p class="section-tag">The Menu</p>
+        <h2 class="section-title">Something sweet<br>for <em>every mood</em></h2>
+        <p class="menu-subtitle">Everything is made fresh. Sell-outs are real. Come early.</p>
+      </div>
+
+      <div class="menu-tabs" role="tablist">
+        <button class="tab active" data-tab="cakes" role="tab" aria-selected="true">Cakes</button>
+        <button class="tab" data-tab="pastries" role="tab" aria-selected="false">Pastries</button>
+        <button class="tab" data-tab="drinks" role="tab" aria-selected="false">Drinks</button>
+      </div>
+
+      <!-- CAKES -->
+      <div class="menu-grid active" id="tab-cakes">
+        <div class="menu-card reveal">
+          <div class="menu-card-top" style="background:var(--pink-1)">
+            <span class="menu-emoji">🍰</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Strawberry Basque</h3>
+              <span class="price">$9</span>
+            </div>
+            <p>Burnt cheesecake base, roasted strawberry compote, fresh cream</p>
+            <span class="badge">Fan Favourite</span>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.08s">
+          <div class="menu-card-top" style="background:#fce4ec">
+            <span class="menu-emoji">🌸</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Rose Lychee Chiffon</h3>
+              <span class="price">$8</span>
+            </div>
+            <p>Soft chiffon layers, rosewater cream, lychee jelly, dried petals</p>
+            <span class="badge">Seasonal</span>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.16s">
+          <div class="menu-card-top" style="background:#fff0f3">
+            <span class="menu-emoji">🍓</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Fraisier</h3>
+              <span class="price">$10</span>
+            </div>
+            <p>Classic French strawberry cake, diplomat cream, génoise sponge</p>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.24s">
+          <div class="menu-card-top" style="background:#fdeef2">
+            <span class="menu-emoji">🫐</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Blueberry Mille-Feuille</h3>
+              <span class="price">$11</span>
+            </div>
+            <p>Caramelised puff pastry, blueberry curd, vanilla mousseline</p>
+            <span class="badge">New</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASTRIES -->
+      <div class="menu-grid" id="tab-pastries">
+        <div class="menu-card reveal">
+          <div class="menu-card-top" style="background:#fde8ee">
+            <span class="menu-emoji">🧁</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Raspberry Macaron</h3>
+              <span class="price">$3.5</span>
+            </div>
+            <p>Almond shells, fresh raspberry ganache, freeze-dried raspberry</p>
+            <span class="badge">Fan Favourite</span>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.08s">
+          <div class="menu-card-top" style="background:#fef0d0">
+            <span class="menu-emoji">🥐</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Strawberry Croissant</h3>
+              <span class="price">$6</span>
+            </div>
+            <p>Laminated butter dough, strawberry crème pâtissière, sugar glaze</p>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.16s">
+          <div class="menu-card-top" style="background:#fde4ea">
+            <span class="menu-emoji">🥧</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Peach Tarte Fine</h3>
+              <span class="price">$7</span>
+            </div>
+            <p>Thin butter pastry, frangipane, roasted peach slices, apricot glaze</p>
+            <span class="badge">Seasonal</span>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.24s">
+          <div class="menu-card-top" style="background:#ffe4ec">
+            <span class="menu-emoji">🌹</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Rose Canelé</h3>
+              <span class="price">$4</span>
+            </div>
+            <p>Caramelised copper-moulded custard, rosewater, dark rum</p>
+            <span class="badge">New</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRINKS -->
+      <div class="menu-grid" id="tab-drinks">
+        <div class="menu-card reveal">
+          <div class="menu-card-top" style="background:#fde8f0">
+            <span class="menu-emoji">🧋</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Strawberry Matcha Latte</h3>
+              <span class="price">$7</span>
+            </div>
+            <p>Ceremonial grade matcha, house strawberry syrup, oat milk foam</p>
+            <span class="badge">Fan Favourite</span>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.08s">
+          <div class="menu-card-top" style="background:#fce4ec">
+            <span class="menu-emoji">🌸</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Rose Cardamom Latte</h3>
+              <span class="price">$6.5</span>
+            </div>
+            <p>Double shot espresso, house rose syrup, cardamom, steamed milk</p>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.16s">
+          <div class="menu-card-top" style="background:#fff0ea">
+            <span class="menu-emoji">🍑</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Peach Oolong Fizz</h3>
+              <span class="price">$6</span>
+            </div>
+            <p>Cold-brewed oolong, peach purée, sparkling water, basil</p>
+            <span class="badge">Seasonal</span>
+          </div>
+        </div>
+        <div class="menu-card reveal" style="animation-delay:0.24s">
+          <div class="menu-card-top" style="background:#fde4f4">
+            <span class="menu-emoji">🫧</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <h3>Lychee Sparkler</h3>
+              <span class="price">$5.5</span>
+            </div>
+            <p>Lychee syrup, elderflower, prosecco, fresh mint, rose ice</p>
+            <span class="badge">New</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-blob" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="footer-logo">Sucrée</a>
+        <p class="footer-tagline">Every bite is a little celebration.</p>
+        <div class="footer-socials">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Explore</p>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Visit Us</p>
+        <address>
+          <p>18 Blossom Lane<br>Open daily 8am – 8pm</p>
+          <p style="margin-top:8px">hello@sucree.co</p>
+        </address>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 Sucrée Patisserie. Made with 🩷</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
