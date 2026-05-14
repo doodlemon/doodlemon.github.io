@@ -227,34 +227,30 @@
     box-shadow: 4px 4px 0 var(--pink-mid);
   }
 
-  /* pixel cat floating decoration */
-  .hero-cat-deco {
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* ── PIXEL HOUSE SCENE ── */
+  .hero-scene {
     position: absolute;
-    right: 5%;
+    right: 4%;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 80px;
-    animation: float 3s ease-in-out infinite;
     user-select: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(-50%) translateY(0); }
-    50% { transform: translateY(-50%) translateY(-16px); }
-  }
+  .hero-scene svg { image-rendering: pixelated; }
 
-  .hero-cat-deco .pixel-label {
-    font-family: var(--pixel);
-    font-size: 6px;
-    color: var(--pink-dark);
-    background: var(--pink-light);
-    border: 2px solid var(--pink);
-    padding: 4px 8px;
+  .scene-cloud {
+    position: absolute;
+    animation: float 4s ease-in-out infinite;
   }
+  .scene-cloud:nth-child(2) { animation-delay: 1.5s; }
 
   /* ── PIXEL CAT SVG ── */
   .pixel-cat-svg {
@@ -351,6 +347,146 @@
     color: var(--accent);
     border-radius: 0;
     border: 1px solid #ddd6fe;
+  }
+
+  /* ── LIVE PROJECTS ── */
+  .live-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .live-card {
+    background: white;
+    border: 3px solid var(--pink-mid);
+    overflow: hidden;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .live-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 6px 6px 0 var(--pink-mid);
+    border-color: var(--pink);
+  }
+
+  .live-preview {
+    width: 100%;
+    height: 140px;
+    background: var(--pink-light);
+    border-bottom: 3px solid var(--pink-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--pixel);
+    font-size: 8px;
+    color: var(--text-soft);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .live-preview iframe {
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: top left;
+    border: none;
+    pointer-events: none;
+  }
+
+  .live-preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.6;
+  }
+
+  .live-preview-placeholder span { font-size: 28px; }
+
+  .live-card-body { padding: 1rem; }
+
+  .live-card-title {
+    font-family: var(--pixel);
+    font-size: 7px;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 0.4rem;
+  }
+
+  .live-card-desc {
+    font-size: 12px;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .live-card-links {
+    display: flex;
+    gap: 8px;
+  }
+
+  .live-btn {
+    font-family: var(--pixel);
+    font-size: 6px;
+    padding: 6px 10px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.1s;
+  }
+
+  .live-btn-primary {
+    background: var(--pink);
+    color: white;
+    box-shadow: 3px 3px 0 var(--pink-dark);
+  }
+
+  .live-btn-primary:hover {
+    transform: translate(1px,1px);
+    box-shadow: 2px 2px 0 var(--pink-dark);
+  }
+
+  .live-btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    box-shadow: 3px 3px 0 #ddd6fe;
+  }
+
+  .live-btn-secondary:hover {
+    transform: translate(1px,1px);
+    box-shadow: 2px 2px 0 #ddd6fe;
+  }
+
+  .live-add-card {
+    border: 3px dashed var(--pink-mid);
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .live-add-card:hover {
+    border-color: var(--pink);
+    background: var(--pink-light);
+  }
+
+  .live-add-card span {
+    font-family: var(--pixel);
+    font-size: 7px;
+    color: var(--text-soft);
+    text-align: center;
+    line-height: 2;
+  }
+
+  .live-add-icon {
+    font-size: 32px;
+    animation: float 3s ease-in-out infinite;
   }
 
   /* ── SKILLS ── */
@@ -689,6 +825,7 @@
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#live">Live</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -715,41 +852,136 @@
     <div class="chip">🐱 Cat lover</div>
   </div>
 
-  <!-- Pixel Art Floating Cat Decoration -->
-  <div class="hero-cat-deco">
-    <svg width="96" height="96" viewBox="0 0 16 16" class="pixel-cat-svg" xmlns="http://www.w3.org/2000/svg">
-      <!-- body -->
-      <rect x="3" y="7" width="10" height="8" fill="#f9a8d4"/>
-      <!-- head -->
-      <rect x="4" y="3" width="8" height="6" fill="#f9a8d4"/>
-      <!-- ears -->
-      <rect x="4" y="1" width="2" height="3" fill="#f9a8d4"/>
-      <rect x="10" y="1" width="2" height="3" fill="#f9a8d4"/>
-      <rect x="5" y="2" width="1" height="2" fill="#f472b6"/>
-      <rect x="10" y="2" width="1" height="2" fill="#f472b6"/>
-      <!-- eyes -->
-      <rect x="6" y="5" width="1" height="2" fill="#be185d"/>
-      <rect x="9" y="5" width="1" height="2" fill="#be185d"/>
-      <!-- nose -->
-      <rect x="8" y="7" width="1" height="1" fill="#ec4899"/>
-      <!-- mouth -->
-      <rect x="7" y="8" width="1" height="1" fill="#ec4899"/>
-      <rect x="9" y="8" width="1" height="1" fill="#ec4899"/>
-      <!-- blush -->
-      <rect x="5" y="7" width="1" height="1" fill="#fda4af" opacity="0.7"/>
-      <rect x="10" y="7" width="1" height="1" fill="#fda4af" opacity="0.7"/>
-      <!-- tail -->
-      <rect x="13" y="10" width="2" height="2" fill="#f9a8d4"/>
-      <rect x="14" y="8" width="1" height="3" fill="#f9a8d4"/>
-      <!-- paws -->
-      <rect x="4" y="14" width="2" height="2" fill="#fbcfe8"/>
-      <rect x="10" y="14" width="2" height="2" fill="#fbcfe8"/>
-      <!-- bow -->
-      <rect x="6" y="3" width="4" height="2" fill="#c084fc"/>
-      <rect x="7" y="2" width="2" height="4" fill="#c084fc"/>
-      <rect x="8" y="3" width="1" height="1" fill="#e9d5ff"/>
+  <!-- Pixel Art House Scene -->
+  <div class="hero-scene">
+    <svg width="220" height="260" viewBox="0 0 55 65" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+
+      <!-- clouds -->
+      <g style="animation:float 4s ease-in-out infinite">
+        <rect x="2" y="4" width="10" height="3" fill="white" opacity="0.9"/>
+        <rect x="1" y="5" width="12" height="2" fill="white" opacity="0.9"/>
+        <rect x="3" y="3" width="7" height="2" fill="white" opacity="0.9"/>
+      </g>
+      <g style="animation:float 5s ease-in-out infinite;animation-delay:1.5s">
+        <rect x="36" y="2" width="12" height="3" fill="white" opacity="0.85"/>
+        <rect x="35" y="3" width="14" height="2" fill="white" opacity="0.85"/>
+        <rect x="38" y="1" width="8" height="2" fill="white" opacity="0.85"/>
+      </g>
+
+      <!-- Stars -->
+      <rect x="28" y="6" width="1" height="1" fill="#f9a8d4"/>
+      <rect x="18" y="3" width="1" height="1" fill="#c084fc"/>
+      <rect x="50" y="8" width="1" height="1" fill="#f9a8d4"/>
+
+      <!-- HOUSE BODY -->
+      <rect x="10" y="30" width="36" height="24" fill="#fce7f3"/>
+      <!-- house outline -->
+      <rect x="10" y="30" width="36" height="1" fill="#f472b6"/>
+      <rect x="10" y="30" width="1" height="24" fill="#f472b6"/>
+      <rect x="45" y="30" width="1" height="24" fill="#f472b6"/>
+      <rect x="10" y="53" width="36" height="1" fill="#f472b6"/>
+
+      <!-- ROOF -->
+      <rect x="14" y="26" width="28" height="5" fill="#f472b6"/>
+      <rect x="18" y="22" width="20" height="5" fill="#f472b6"/>
+      <rect x="21" y="18" width="14" height="5" fill="#ec4899"/>
+      <rect x="24" y="15" width="8" height="4" fill="#ec4899"/>
+      <!-- roof trim -->
+      <rect x="14" y="25" width="28" height="1" fill="#be185d"/>
+      <rect x="18" y="21" width="20" height="1" fill="#be185d"/>
+      <rect x="21" y="17" width="14" height="1" fill="#be185d"/>
+
+      <!-- chimney -->
+      <rect x="38" y="11" width="4" height="8" fill="#fbcfe8"/>
+      <rect x="37" y="10" width="6" height="2" fill="#f9a8d4"/>
+      <!-- smoke puffs -->
+      <circle cx="40" cy="8" r="1.5" fill="white" opacity="0.7" style="animation:float 2s ease-in-out infinite"/>
+      <circle cx="41" cy="5" r="1" fill="white" opacity="0.5" style="animation:float 2.5s ease-in-out infinite;animation-delay:0.3s"/>
+
+      <!-- DOOR -->
+      <rect x="23" y="40" width="10" height="14" fill="#c084fc"/>
+      <rect x="23" y="40" width="10" height="1" fill="#a855f7"/>
+      <rect x="23" y="40" width="1" height="14" fill="#a855f7"/>
+      <rect x="32" y="40" width="1" height="14" fill="#a855f7"/>
+      <!-- door knob -->
+      <rect x="30" y="47" width="2" height="2" fill="#fde68a"/>
+      <!-- door arch top -->
+      <rect x="24" y="38" width="8" height="3" fill="#c084fc"/>
+      <rect x="25" y="37" width="6" height="2" fill="#c084fc"/>
+
+      <!-- LEFT WINDOW -->
+      <rect x="13" y="34" width="8" height="7" fill="#bae6fd"/>
+      <rect x="13" y="34" width="8" height="1" fill="#f472b6"/>
+      <rect x="13" y="34" width="1" height="7" fill="#f472b6"/>
+      <rect x="20" y="34" width="1" height="7" fill="#f472b6"/>
+      <rect x="13" y="40" width="8" height="1" fill="#f472b6"/>
+      <!-- window cross -->
+      <rect x="17" y="34" width="1" height="7" fill="#f472b6"/>
+      <rect x="13" y="37" width="8" height="1" fill="#f472b6"/>
+      <!-- window shine -->
+      <rect x="14" y="35" width="2" height="1" fill="white" opacity="0.7"/>
+
+      <!-- RIGHT WINDOW -->
+      <rect x="35" y="34" width="8" height="7" fill="#bae6fd"/>
+      <rect x="35" y="34" width="8" height="1" fill="#f472b6"/>
+      <rect x="35" y="34" width="1" height="7" fill="#f472b6"/>
+      <rect x="42" y="34" width="1" height="7" fill="#f472b6"/>
+      <rect x="35" y="40" width="8" height="1" fill="#f472b6"/>
+      <rect x="39" y="34" width="1" height="7" fill="#f472b6"/>
+      <rect x="35" y="37" width="8" height="1" fill="#f472b6"/>
+      <rect x="36" y="35" width="2" height="1" fill="white" opacity="0.7"/>
+
+      <!-- flower box left window -->
+      <rect x="12" y="41" width="10" height="2" fill="#f472b6"/>
+      <rect x="13" y="39" width="1" height="2" fill="#4ade80"/>
+      <rect x="15" y="39" width="1" height="2" fill="#4ade80"/>
+      <rect x="17" y="39" width="1" height="2" fill="#4ade80"/>
+      <rect x="13" y="38" width="1" height="1" fill="#f9a8d4"/>
+      <rect x="15" y="37" width="1" height="2" fill="#fde68a"/>
+      <rect x="17" y="38" width="1" height="1" fill="#f472b6"/>
+
+      <!-- GRASS GROUND -->
+      <rect x="0" y="54" width="55" height="11" fill="#4ade80"/>
+      <!-- grass texture -->
+      <rect x="0" y="54" width="55" height="2" fill="#22c55e"/>
+      <!-- grass tufts -->
+      <rect x="2" y="53" width="1" height="2" fill="#16a34a"/>
+      <rect x="6" y="52" width="1" height="3" fill="#16a34a"/>
+      <rect x="9" y="53" width="1" height="2" fill="#16a34a"/>
+      <rect x="47" y="53" width="1" height="2" fill="#16a34a"/>
+      <rect x="50" y="52" width="1" height="3" fill="#16a34a"/>
+      <rect x="53" y="53" width="1" height="2" fill="#16a34a"/>
+
+      <!-- PATH -->
+      <rect x="22" y="54" width="12" height="3" fill="#fde68a" opacity="0.7"/>
+      <rect x="24" y="57" width="8" height="2" fill="#fde68a" opacity="0.7"/>
+      <rect x="25" y="59" width="6" height="4" fill="#fde68a" opacity="0.7"/>
+
+      <!-- LEFT FLOWER -->
+      <rect x="5" y="50" width="1" height="4" fill="#16a34a"/>
+      <rect x="4" y="49" width="3" height="1" fill="#f472b6"/>
+      <rect x="5" y="48" width="1" height="1" fill="#fde68a"/>
+
+      <!-- RIGHT FLOWER -->
+      <rect x="49" y="50" width="1" height="4" fill="#16a34a"/>
+      <rect x="48" y="49" width="3" height="1" fill="#a855f7"/>
+      <rect x="49" y="48" width="1" height="1" fill="#fde68a"/>
+
+      <!-- TREE left -->
+      <rect x="1" y="36" width="3" height="18" fill="#92400e"/>
+      <rect x="0" y="25" width="5" height="12" fill="#22c55e"/>
+      <rect x="1" y="22" width="3" height="5" fill="#16a34a"/>
+      <!-- tree apples -->
+      <rect x="1" y="27" width="1" height="1" fill="#f472b6"/>
+      <rect x="3" y="29" width="1" height="1" fill="#f472b6"/>
+
+      <!-- MAILBOX right -->
+      <rect x="49" y="43" width="2" height="11" fill="#92400e"/>
+      <rect x="47" y="38" width="6" height="6" fill="#f472b6"/>
+      <rect x="47" y="38" width="6" height="1" fill="#be185d"/>
+      <rect x="49" y="40" width="2" height="1" fill="#fce7f3"/>
+
     </svg>
-    <div class="pixel-label">✿ it's me! ✿</div>
   </div>
 </section>
 
@@ -821,6 +1053,60 @@
         <span class="tech-pill">DAX</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- LIVE FRONTEND PROJECTS -->
+<section id="live">
+  <h2 class="section-title reveal">✿ Live Projects</h2>
+  <p class="reveal" style="font-size:14px;color:var(--text-soft);margin-bottom:2rem;font-family:var(--pixel);font-size:7px;line-height:2">
+    ✦ things you can actually click on ✦
+  </p>
+
+  <div class="live-grid">
+
+    <!-- Card 1 — E-Commerce -->
+    <div class="live-card reveal">
+      <div class="live-preview">
+        <div class="live-preview-placeholder">
+          <span>🛍️</span>
+          <div>E-Commerce Site</div>
+        </div>
+      </div>
+      <div class="live-card-body">
+        <div class="live-card-title">Front-End E-Commerce</div>
+        <p class="live-card-desc">A responsive online shop with product listings, cart interactions, and animated UI.</p>
+        <div class="live-card-links">
+          <a href="#" class="live-btn live-btn-primary">LIVE ↗</a>
+          <a href="https://github.com" class="live-btn live-btn-secondary" target="_blank">CODE ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 — Hospital -->
+    <div class="live-card reveal">
+      <div class="live-preview">
+        <div class="live-preview-placeholder">
+          <span>🏥</span>
+          <div>Hospital System</div>
+        </div>
+      </div>
+      <div class="live-card-body">
+        <div class="live-card-title">Hospital Management UI</div>
+        <p class="live-card-desc">Full-stack CRUD system for managing patients, staff, and appointments.</p>
+        <div class="live-card-links">
+          <a href="#" class="live-btn live-btn-primary">LIVE ↗</a>
+          <a href="https://github.com" class="live-btn live-btn-secondary" target="_blank">CODE ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more card -->
+    <div class="live-card live-add-card reveal" onclick="alert('Add your project link here! Edit the HTML to swap in your real URLs ♡')">
+      <div class="live-add-icon">✦</div>
+      <span>+ ADD PROJECT<br>click to add yours</span>
+    </div>
+
   </div>
 </section>
 
