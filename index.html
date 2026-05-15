@@ -143,6 +143,7 @@
     align-items: flex-start;
     min-height: 100vh;
     padding-top: 80px;
+    position: relative;
   }
 
   .hero-badge {
@@ -811,9 +812,10 @@
   .kawaii-deco span:nth-child(3) { animation-delay: 0.8s; }
   .kawaii-deco span:nth-child(4) { animation-delay: 1.2s; }
 
-  @media (max-width: 640px) {
-    .hero-cat-deco { display: none; }
+  @media (max-width: 768px) {
+    .hero-scene { display: none; }
     .section-title { font-size: 9px; }
+    #home { padding-right: 1rem; }
   }
 </style>
 </head>
@@ -1064,8 +1066,7 @@
   </p>
 
   <div class="live-grid">
-
-    <!-- Card 1 — E-Commerce -->
+ <!-- Card 1 — E-Commerce -->
     <div class="live-card reveal">
       <div class="live-preview">
       </div>
@@ -1245,6 +1246,14 @@
       <a href="https://github.com" class="btn-pixel btn-outline" target="_blank">GitHub ↗</a>
     </div>
   </div>
+
+  <!-- PIXEL MAP -->
+  <div class="map-container reveal">
+    <div class="map-title">✿ Currently based in Sakarya, Turkey ✿</div>
+    <canvas id="mapCanvas" width="600" height="220" style="width:100%;border:2px solid var(--pink-mid);image-rendering:pixelated;display:block"></canvas>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <p>✿ MASAH JSRI · PORTFOLIO · 2025 ✿</p>
@@ -1406,6 +1415,10 @@ setInterval(() => {
   setTimeout(() => cat.style.transform = 'rotate(-3deg)', 200);
   setTimeout(() => cat.style.transform = 'rotate(0deg)', 400);
 }, 5000);
+
+// ── PIXEL MAP ──
+const canvas = document.getElementById('mapCanvas');
+const ctx = canvas.getContext('2d');
 
 </script>
 </body>
