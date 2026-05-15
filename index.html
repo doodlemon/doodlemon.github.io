@@ -1070,15 +1070,15 @@
       <div class="live-preview">
         <div class="live-preview-placeholder">
           <span>🛍️</span>
-          <div>E-Commerce Site</div>
+          <div>Front-End Restaurant</div>
         </div>
       </div>
       <div class="live-card-body">
-        <div class="live-card-title">Front-End Cafe</div>
-        <p class="live-card-desc">A responsive online shop with product listings, cart interactions, and animated UI.</p>
+        <div class="live-card-title">Pizza Restaurant</div>
+        <p class="live-card-desc">A responsive online shop with product listings and animated UI.</p>
         <div class="live-card-links">
-          <a href="https://doodlemon.github.io/cafe" class="live-btn live-btn-primary">LIVE ↗</a>
-          <a href="https://github.com/doodlemon/doodlemon.github.io/tree/main/cafe" class="live-btn live-btn-secondary">CODE ↗</a>
+          <a href="https://doodlemon.github.io/pizza restaurant" class="live-btn live-btn-primary">LIVE ↗</a>
+          <a href="https://github.com/doodlemon/doodlemon.github.io/tree/main/pizza restaurant" class="live-btn live-btn-secondary">CODE ↗</a>
         </div>
       </div>
     </div>
@@ -1088,15 +1088,15 @@
       <div class="live-preview">
         <div class="live-preview-placeholder">
           <span>🏥</span>
-          <div>Hospital System</div>
+          <div>Front-End Cafe</div>
         </div>
       </div>
       <div class="live-card-body">
-        <div class="live-card-title">Hospital Management UI</div>
-        <p class="live-card-desc">Full-stack CRUD system for managing patients, staff, and appointments.</p>
+        <div class="live-card-title">Cafe Website</div>
+        <p class="live-card-desc"></p>
         <div class="live-card-links">
-          <a href="#" class="live-btn live-btn-primary">LIVE ↗</a>
-          <a href="https://github.com" class="live-btn live-btn-secondary" target="_blank">CODE ↗</a>
+          <a href="https://doodlemon.github.io/cafe" class="live-btn live-btn-primary">LIVE ↗</a>
+          <a href="https://github.com/doodlemon/doodlemon.github.io/tree/main/cafe" class="live-btn live-btn-secondary">CODE ↗</a>
         </div>
       </div>
     </div>
@@ -1429,114 +1429,6 @@ setInterval(() => {
   setTimeout(() => cat.style.transform = 'rotate(0deg)', 400);
 }, 5000);
 
-// ── PIXEL MAP ──
-const canvas = document.getElementById('mapCanvas');
-const ctx = canvas.getContext('2d');
-
-function drawPixelMap() {
-  ctx.fillStyle = '#fdf2f8';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  const land = [
-    // rough Turkey shape in pixel blocks
-    [10,8],[11,8],[12,8],[13,8],[14,8],[15,8],[16,8],
-    [8,9],[9,9],[10,9],[11,9],[12,9],[13,9],[14,9],[15,9],[16,9],[17,9],[18,9],
-    [7,10],[8,10],[9,10],[10,10],[11,10],[12,10],[13,10],[14,10],[15,10],[16,10],[17,10],[18,10],[19,10],[20,10],
-    [6,11],[7,11],[8,11],[9,11],[10,11],[11,11],[12,11],[13,11],[14,11],[15,11],[16,11],[17,11],[18,11],[19,11],[20,11],[21,11],
-    [5,12],[6,12],[7,12],[8,12],[9,12],[10,12],[11,12],[12,12],[13,12],[14,12],[15,12],[16,12],[17,12],[18,12],[19,12],[20,12],[21,12],
-    [5,13],[6,13],[7,13],[8,13],[9,13],[10,13],[11,13],[12,13],[13,13],[14,13],[15,13],[16,13],[17,13],[18,13],[19,13],[20,13],
-    [6,14],[7,14],[8,14],[9,14],[10,14],[11,14],[12,14],[13,14],[14,14],[15,14],[16,14],[17,14],
-    [7,15],[8,15],[9,15],[10,15],[11,15],[12,15],[13,15],[14,15],[15,15],
-    [8,16],[9,16],[10,16],[11,16],[12,16],[13,16],
-  ];
-
-  const block = 14;
-
-  // Sea background dots
-  for (let x = 0; x < canvas.width; x += block) {
-    for (let y = 0; y < canvas.height; y += block) {
-      ctx.fillStyle = '#e0f2fe';
-      ctx.fillRect(x, y, block-1, block-1);
-    }
-  }
-
-  // Draw land
-  land.forEach(([gx, gy]) => {
-    ctx.fillStyle = '#f9a8d4';
-    ctx.fillRect(gx * block, gy * block, block - 1, block - 1);
-  });
-
-  // Draw borders with darker pink
-  land.forEach(([gx, gy]) => {
-    const neighbors = [[gx-1,gy],[gx+1,gy],[gx,gy-1],[gx,gy+1]];
-    const isEdge = neighbors.some(([nx,ny]) => !land.some(([lx,ly]) => lx===nx && ly===ny));
-    if (isEdge) {
-      ctx.fillStyle = '#f472b6';
-      ctx.fillRect(gx * block, gy * block, block - 1, block - 1);
-    }
-  });
-
-  // Re-draw inner land
-  land.forEach(([gx, gy]) => {
-    const neighbors = [[gx-1,gy],[gx+1,gy],[gx,gy-1],[gx,gy+1]];
-    const isEdge = neighbors.some(([nx,ny]) => !land.some(([lx,ly]) => lx===nx && ly===ny));
-    if (!isEdge) {
-      ctx.fillStyle = '#fbcfe8';
-      ctx.fillRect(gx * block, gy * block, block - 1, block - 1);
-    }
-  });
-
-  // Sakarya marker (roughly ~12, 11 in our grid)
-  const mx = 11 * block + block/2;
-  const my = 11 * block + block/2;
-
-  // Ping animation approach: draw star marker
-  ctx.fillStyle = '#be185d';
-  ctx.fillRect(mx - 4, my - 8, 8, 8);
-  ctx.fillRect(mx - 2, my - 12, 4, 5);
-
-  // Label
-  ctx.font = 'bold 10px "Press Start 2P", monospace';
-  ctx.fillStyle = '#4a1942';
-  ctx.fillText('Sakarya ♡', mx - 35, my + 20);
-
-  // Istanbul marker
-  const ix = 8 * block + block/2;
-  const iy = 11 * block + block/2;
-  ctx.fillStyle = '#c084fc';
-  ctx.fillRect(ix - 3, iy - 7, 6, 7);
-  ctx.fillRect(ix - 1, iy - 10, 3, 4);
-  ctx.font = 'bold 8px "Press Start 2P", monospace';
-  ctx.fillStyle = '#4a1942';
-  ctx.fillText('Istanbul', ix - 25, iy + 18);
-
-  // Jeddah label (outside map — bottom right)
-  ctx.font = 'bold 8px "Press Start 2P", monospace';
-  ctx.fillStyle = '#f472b6';
-  ctx.fillText('▸ Jeddah, KSA (home)', 280, canvas.height - 12);
-
-  // grid label
-  ctx.font = '8px "Press Start 2P", monospace';
-  ctx.fillStyle = '#f9a8d4';
-  ctx.fillText('TURKEY', 10 * block, 19 * block - 5);
-}
-
-drawPixelMap();
-
-// Animate pin pulse
-let pulse = 0;
-function animatePulse() {
-  drawPixelMap();
-  const mx = 11 * 14 + 7;
-  const my = 11 * 14 + 7;
-  pulse = (pulse + 0.05) % (Math.PI * 2);
-  const r = 8 + Math.sin(pulse) * 4;
-  ctx.strokeStyle = 'rgba(244,114,182,' + (0.5 + Math.sin(pulse) * 0.4) + ')';
-  ctx.lineWidth = 2;
-  ctx.strokeRect(mx - r, my - r, r * 2, r * 2);
-  requestAnimationFrame(animatePulse);
-}
-animatePulse();
 </script>
 </body>
 </html>
